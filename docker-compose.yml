@@ -1,0 +1,16 @@
+version: "2"
+
+services:
+  minidlna:
+    image: djdefi/rpi-minidlna
+    volumes:
+      - /mnt/archive:/media
+    environment:
+      - MINIDLNA_MEDIA_DIR=/media
+      - MINIDLNA_FRIENDLY_NAME=RPi
+      - MINIDLNA_PORT=8200
+      - MINIDLNA_DB_DIR=/media/dlna
+    ports:
+      - 8200:8200
+    network_mode: "host"
+    restart: always 
